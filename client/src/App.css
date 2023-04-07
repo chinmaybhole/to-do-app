@@ -5,6 +5,20 @@ body{
   margin: 0 auto;
 }
 
+.loader{
+  position: absolute;
+  top: 2px;
+ 
+
+}
+
+.loader img{
+  width: 90px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+
+}
+
 header{
   text-align: center;
 }
@@ -61,12 +75,12 @@ header h1{
 }
 
 
-
-
-
 article{
   display: subgrid;
+  
 }
+
+
 
 .edit-todo{
   background-color: transparent;
@@ -78,10 +92,27 @@ article{
   border-bottom: 1px solid black; 
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 850px) {
   body {
     width: 90%;
     padding-left: 5%;
     padding-right: 5%;
   }
+
+  .loader img{
+    width: 45px;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  
+  }
+  header h1{
+    font-size: 50px;
+  }
+  
+  ul{
+    padding-left:0;
+  }
+  
+
+
 }

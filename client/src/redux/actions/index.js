@@ -7,7 +7,7 @@ import {
   DELETE_TODO,
 } from "./type";
 
-const API_URL = "http://localhost:8000";
+const API_URL = "https://todo-app-bgtp.onrender.com";
 
 export const addNewTodo = (data) => async (dispatch) => {
   try {
