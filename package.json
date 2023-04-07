@@ -9,7 +9,7 @@
     "server": "nodemon index.js",
     "client":"npm run start --prefix client",
     "dev":"concurrently -k \"npm run server\" \"npm run client\"",
-    "build": "npm install --prefix client && npm run build -- prefix client",
+    "render-postbuild": "npm install --prefix client && npm run build -- prefix client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chinmay Bhole",
