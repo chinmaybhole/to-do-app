@@ -7,9 +7,6 @@ import logo from "../src/logo-color.png";
 function App() {
   return (
     <div>
-      <div class="loader">
-        <img src={logo} alt="logo" />
-      </div>
       <Header />
       <TodoForm />
       <Todos />

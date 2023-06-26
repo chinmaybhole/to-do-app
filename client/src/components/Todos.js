@@ -1,25 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getallTodos } from "../redux/actions";
-import { useEffect } from "react";
 import Todo from "./Todo";
 
 function Todos() {
   const dispatch = useDispatch();
-
   const todos = useSelector((state) => state.todos);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    dispatch(getallTodos());
-  });
+    setLoading(true);
+    dispatch(getallTodos())
+      .then((response) => {
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log("Error fetching todos:", error);
+        setLoading(false);
+      });
+  }, [dispatch]);
+
+  // useEffect(() => {
+  //   dispatch(getallTodos());
+  // }, [dispatch]);
 
   return (
     <article>
-      <ul>
-        {todos.map((todo, i) => {
-          return <Todo key={i} todo={todo} />;
-        })}
-      </ul>
+      {loading ? (
+        <div className="ring">
+          <span className="span"></span>
+        </div> // Display the loader if isLoading is true
+      ) : (
+        <ul>
+          {todos.map((todo, i) => (
+            <Todo key={i} todo={todo} />
+          ))}
+        </ul>
+      )}
     </article>
   );
 }
